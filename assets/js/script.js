@@ -1,25 +1,36 @@
 // api.openweathermap.org/data/2.5/weather?q=London,uk&appid=78c29c57fa1b0939a568dac3a843325c
 
-fetch(
-  "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=78c29c57fa1b0939a568dac3a843325c",
-  {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }
-)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
 
-// const data = {};
+let button = document.querySelector("button");
+let form = document.querySelector("form");
 
-// fetch(
-//   "api.openweathermap.org/data/2.5/weather?q=London,uk&appid=78c29c57fa1b0939a568dac3a843325c"
-// )
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
+const localTime = document.querySelector("#localTime .value");
+const wind = document.querySelector("#wind .value");
+const cloudiness = document.querySelector("#cloudiness .value");
+const pressure = document.querySelector("#pressure .value");
+const humidity = document.querySelector("#humidity .value");
+const sunrise = document.querySelector("#sunrise .value");
+const sunset = document.querySelector("#sunset .value");
+const geoCoords = document.querySelector("#geoCoords .value");
+
+form.addEventListener("submit",(e) => {
+  e.preventDefault();
+  let city = document.querySelector("#searchField");
+  city = city.value;
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=78c29c57fa1b0939a568dac3a843325c`
+    )
+    .then((response) => response.json())
+    .then((data) => {
+      localTime.innerHTML = "Uhrzeit von jetzt";
+      if(data.wind.speed < 4.5){
+        wind.innerHTML = "easy breasy";
+      }
+      if(data.wind.speed < 32){
+        wind.innerHTML = "windy";
+      }
+      if(data.wind.speed > 32){
+        wind.innerHTML = "stormy";
+      }
+      console.log(data)})
+})
