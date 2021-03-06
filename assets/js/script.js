@@ -23,6 +23,14 @@ form.addEventListener("submit",(e) => {
     .then((response) => response.json())
     .then((data) => {
       localTime.innerHTML = "Uhrzeit von jetzt";
-      wind.innerHTML = data.wind.speed;
+      if(data.wind.speed < 4.5){
+        wind.innerHTML = "easy breasy";
+      }
+      if(data.wind.speed < 32){
+        wind.innerHTML = "windy";
+      }
+      if(data.wind.speed > 32){
+        wind.innerHTML = "stormy";
+      }
       console.log(data)})
 })
