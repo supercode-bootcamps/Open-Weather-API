@@ -84,11 +84,13 @@ form.addEventListener("submit", (e) => {
 
       let getSunrise = () => {
         let sunriseTime = data.sys.sunrise;
-        let sunriseDate = new Date(sunriseTime * 1000);
+        let sunriseDate = new Date(
+          sunriseTime * 1000 + 3600000 * (data.timezone / 3600)
+        );
         let sunriseHour =
-          sunriseDate.getHours() < 10
-            ? "0" + sunriseDate.getHours()
-            : sunriseDate.getHours();
+          sunriseDate.getUTCHours() < 10
+            ? "0" + sunriseDate.getUTCHours()
+            : sunriseDate.getUTCHours();
         let sunriseMin =
           sunriseDate.getMinutes() < 10
             ? "0" + sunriseDate.getMinutes()
@@ -98,11 +100,13 @@ form.addEventListener("submit", (e) => {
 
       let getSunset = () => {
         let sunsetTime = data.sys.sunset;
-        let sunsetDate = new Date(sunsetTime * 1000);
+        let sunsetDate = new Date(
+          sunsetTime * 1000 + 3600000 * (data.timezone / 3600)
+        );
         let sunsetHour =
-          sunsetDate.getHours() < 10
-            ? "0" + sunsetDate.getHours()
-            : sunsetDate.getHours();
+          sunsetDate.getUTCHours() < 10
+            ? "0" + sunsetDate.getUTCHours()
+            : sunsetDate.getUTCHours();
         let sunsetMin =
           sunsetDate.getMinutes() < 10
             ? "0" + sunsetDate.getMinutes()
