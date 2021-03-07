@@ -62,3 +62,9 @@ body {
   background-color: #0c2659;
   font-family: "Roboto", sans-serif;
 }
+
+
+/* ------ nur zur ersten besseren Sichtbarkeit */
+.detailHeader {
+  text-decoration: underline;
+}
