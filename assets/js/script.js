@@ -82,23 +82,51 @@ form.addEventListener("submit", (e) => {
 
       // ---------- convert sunrise/sunset into hour -------------
 
-      let showSuntime = (milliseconds) => {
-        let day, hour, minute, seconds;
-        seconds = Math.floor(milliseconds / 1000);
-        minute = Math.floor(seconds / 60);
-        seconds = seconds % 60;
-        hour = Math.floor(minute / 60);
-        minute = minute % 60;
-        day = Math.floor(hour / 24);
-        hour = hour % 24;
-        console.log();
-        return `${hour}:${minute}`;
+      let getSunrise = () => {
+        let sunriseTime = data.sys.sunrise;
+        let sunriseDate = new Date(sunriseTime * 1000);
+        let sunriseHour =
+          sunriseDate.getHours() < 10
+            ? "0" + sunriseDate.getHours()
+            : sunriseDate.getHours();
+        let sunriseMin =
+          sunriseDate.getMinutes() < 10
+            ? "0" + sunriseDate.getMinutes()
+            : sunriseDate.getMinutes();
+        return `${sunriseHour}:${sunriseMin}`;
       };
 
-      sunrise.innerHTML = showSuntime(data.sys.sunrise);
-      sunset.innerHTML = showSuntime(data.sys.sunset);
+      let getSunset = () => {
+        let sunsetTime = data.sys.sunset;
+        let sunsetDate = new Date(sunsetTime * 1000);
+        let sunsetHour =
+          sunsetDate.getHours() < 10
+            ? "0" + sunsetDate.getHours()
+            : sunsetDate.getHours();
+        let sunsetMin =
+          sunsetDate.getMinutes() < 10
+            ? "0" + sunsetDate.getMinutes()
+            : sunsetDate.getMinutes();
+        return `${sunsetHour}:${sunsetMin}`;
+      };
+
+      sunrise.innerHTML = getSunrise();
+      sunset.innerHTML = getSunset();
       geoCoords.innerHTML = data.coord.lat + "," + data.coord.lon;
 
       console.log(data);
     });
 });
+
+// let showSuntime = (milliseconds) => {
+//   let day, hour, minute, seconds;
+//   seconds = Math.floor(milliseconds / 1000);
+//   minute = Math.floor(seconds / 60);
+//   seconds = seconds % 60;
+//   hour = Math.floor(minute / 60);
+//   minute = minute % 60;
+//   day = Math.floor(hour / 24);
+//   hour = hour % 24;
+//   console.log();
+//   return `${hour}:${minute}`;
+// };
