@@ -59,11 +59,34 @@
 
 body {
   color: #f2d06b;
-  background-color: #0c2659;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 38, 89, 1) 10%,
+    rgba(28, 44, 140, 1) 50%
+  );
   font-family: "Roboto", sans-serif;
+  height: 100vh;
 }
 
-#grid {
-    display:grid;
-    
+header {
+  display: block;
+  text-align: center;
+  margin-top: 4rem;
+}
+h1 {
+  text-transform: uppercase;
+}
+
+#detailInfo:nth-child(1) {
+  height: 2rem;
+  margin: 5px;
+  border: solid 2px #f2bb77;
+}
+
+
+main {
+  margin: 0 auto;
+  width: 50%;
+  display: grid;
+  grid-template-rows:  30% 30% ;
 }
