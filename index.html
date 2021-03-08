@@ -2,70 +2,68 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Open Weather API</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Open Weather API</title>
 </head>
 
 <body>
-    <header>
-        <h1>Happy Weather App</h1>
-        <form>
-            <input type="search" name="search" id="searchField">
-            <p>🔍</p>
-        </form>
-    </header>
+  <header>
+    <h1>Happy Weather App</h1>
+    <form>
+      <input type="search" name="search" id="searchField" />
+      <button>🔍</button>
+    </form>
+  </header>
 
-    <main>
-        <section id="mainInfo">
-            <h2 id="cityName"></h2>
-            <div>
-                <img src="" alt="">
-                <p id="temperature"></p>
-            </div>
-            <p id="basicWeatherInfo"></p>
-            <p id="dateInfo"></p>
-        </section>
-        <section id="detailInfo">
-            <div id="localTime">
-                <div></div>
-                <div></div>
-            </div>
-            <div id="wind">
-                <div></div>
-                <div></div>
-            </div>
-            <div id="cloudiness">
-                <div></div>
-                <div></div>
-            </div>
-            <div id="pressure">
-                <div></div>
-                <div></div>
-            </div>
-            <div id="humidity">
-                <div></div>
-                <div></div>
-            </div>
-            <div id="sunrise">
-                <div></div>
-                <div></div>
-            </div>
-            <div id="sunset">
-                <div></div>
-                <div></div>
-            </div>
-            <div id="geoCoords">
-                <div></div>
-                <div></div>
-            </div>
-        </section>
-
-
-    </main>
-    <script src="assets/js/script.js"></script>
+  <main>
+    <section id="mainInfo">
+      <h2 id="cityName"></h2>
+      <div>
+        <img id="mainIcon" src="" alt="" />
+        <p id="temperature"></p>
+      </div>
+      <p id="basicWeatherInfo"></p>
+      <p id="dateInfo"></p>
+    </section>
+    <section id="detailInfo">
+      <div id="localTime">
+        <div class="detailHeader">Local Time</div>
+        <div class="value"></div>
+      </div>
+      <div id="wind">
+        <div class="detailHeader">Wind</div>
+        <div class="value"></div>
+      </div>
+      <div id="cloudiness">
+        <div class="detailHeader">Cloudiness</div>
+        <div class="value"></div>
+      </div>
+      <div id="pressure">
+        <div class="detailHeader">Pressure</div>
+        <div class="value"></div>
+      </div>
+      <div id="humidity">
+        <div class="detailHeader">Humidity</div>
+        <div class="value"></div>
+      </div>
+      <div id="sunrise">
+        <div class="detailHeader">Sunrise</div>
+        <div class="value"></div>
+      </div>
+      <div id="sunset">
+        <div class="detailHeader">Sunset</div>
+        <div class="value"></div>
+      </div>
+      <div id="geoCoords">
+        <div class="detailHeader">Geo Coordinates</div>
+        <div class="value"></div>
+      </div>
+    </section>
+  </main>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
