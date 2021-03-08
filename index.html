@@ -10,56 +10,63 @@
 
   <body>
     <header>
-      <h1>Happy Weather App</h1>
+      <h1>
+        Happy <br />
+        Weather <br />
+        App
+      </h1>
       <form>
         <input type="search" name="search" id="searchField" />
-        <button>🔍</button>
+        <button>   <img src="/assets/img/lupe.png" alt="lupe"> </button>
+       
       </form>
     </header>
 
     <main>
-      <section id="mainInfo">
-        <h2 id="cityName"></h2>
-        <div>
-          <img src="" alt="" />
-          <p id="temperature"></p>
-        </div>
-        <p id="basicWeatherInfo"></p>
-        <p id="dateInfo"></p>
-      </section>
-      <section id="detailInfo">
-        <div id="localTime">
-          <div>Time</div>
-          <div class="value"></div>
-        </div>
-        <div id="wind">
-          <div>Wind</div>
-          <div class="value"></div>
-        </div>
-        <div id="cloudiness">
-          <div>Test</div>
-          <div class="value"></div>
-        </div>
-        <div id="pressure">
-          <div>Test</div>
-          <div class="value"></div>
-        </div>
-        <div id="humidity">
-          <div>Test</div>
-          <div class="value"></div>
-        </div>
-        <div id="sunrise">
-          <div>Test</div>
-          <div class="value"></div>
-        </div>
-        <div id="sunset">
-          <div>Test</div>
-          <div class="value"></div>
-        </div>
-        <div id="geoCoords">
-          <div>Test</div>
-          <div class="value"></div>
-        </div>
+      <section id="grid">
+        <section id="mainInfo">
+          <h2 id="cityName"></h2>
+          <div>
+            <img id="mainIcon" src="" alt="" />
+            <p id="temperature"></p>
+          </div>
+          <p id="basicWeatherInfo"></p>
+          <p id="dateInfo"></p>
+        </section>
+        <section id="detailInfo">
+          <div id="localTime">
+            <div class="detailHeader">Local Time</div>
+            <div class="value"></div>
+          </div>
+          <div id="wind">
+            <div class="detailHeader">Wind</div>
+            <div class="value"></div>
+          </div>
+          <div id="cloudiness">
+            <div class="detailHeader">Cloudiness</div>
+            <div class="value"></div>
+          </div>
+          <div id="pressure">
+            <div class="detailHeader">Pressure</div>
+            <div class="value"></div>
+          </div>
+          <div id="humidity">
+            <div class="detailHeader">Humidity</div>
+            <div class="value"></div>
+          </div>
+          <div id="sunrise">
+            <div class="detailHeader">Sunrise</div>
+            <div class="value"></div>
+          </div>
+          <div id="sunset">
+            <div class="detailHeader">Sunset</div>
+            <div class="value"></div>
+          </div>
+          <div id="geoCoords">
+            <div class="detailHeader">Geo Coordinates</div>
+            <div class="value"></div>
+          </div>
+        </section>
       </section>
     </main>
     <script src="assets/js/script.js"></script>
