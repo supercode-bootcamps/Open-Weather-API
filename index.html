@@ -1,79 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Open Weather API</title>
-  </head>
 
-  <body>
-    <header>
-      <h1>
-        Happy <br />
-        Weather <br />
-        App
-      </h1>
-      <form>
-        <input
-          type="search"
-          name="search"
-          id="searchField"
-          placeholder="Gib deine Stadt ein"
-        />
-        <button><img src="/assets/img/lupe.png" alt="lupe" /></button>
-      </form>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Open Weather API</title>
+</head>
 
-    <main>
-      <section id="grid">
-        <section id="mainInfo">
-          <div id="lottie-container"></div>
-          <h2 id="cityName"></h2>
-          <div>
-            <p id="temperature"></p>
-          </div>
-          <p id="basicWeatherInfo"></p>
-          <p id="dateInfo"></p>
-        </section>
-        <section id="detailInfo">
-          <div id="localTime">
-            <div class="detailHeader">Local Time</div>
-            <div class="value"></div>
-          </div>
-          <div id="wind">
-            <div class="detailHeader">Wind</div>
-            <div class="value"></div>
-          </div>
-          <div id="cloudiness">
-            <div class="detailHeader">Cloudiness</div>
-            <div class="value"></div>
-          </div>
-          <div id="pressure">
-            <div class="detailHeader">Pressure</div>
-            <div class="value"></div>
-          </div>
-          <div id="humidity">
-            <div class="detailHeader">Humidity</div>
-            <div class="value"></div>
-          </div>
-          <div id="sunrise">
-            <div class="detailHeader">Sunrise</div>
-            <div class="value"></div>
-          </div>
-          <div id="sunset">
-            <div class="detailHeader">Sunset</div>
-            <div class="value"></div>
-          </div>
-          <div id="geoCoords">
-            <div class="detailHeader">Geo Coordinates</div>
-            <div class="value"></div>
-          </div>
-        </section>
+<body>
+  <header>
+    <h1>
+      Happy <br />
+      Weather <br />
+      App
+    </h1>
+    <form>
+      <input type="search" name="search" id="searchField" placeholder="Search city" />
+      <button><img src="/assets/img/lupe.png" alt="lupe" /></button>
+    </form>
+  </header>
+
+  <main>
+    <section id="grid">
+      <section id="mainInfo">
+        <div id="lottie-container"></div>
+        <h2 id="cityName"></h2>
+        <div>
+          <p id="temperature"></p>
+        </div>
+        <p id="basicWeatherInfo"></p>
+        <p id="dateInfo"></p>
       </section>
-    </main>
-    <script src="assets/js/script.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  </body>
+      <section id="detailInfo">
+        <div id="localTime">
+          <div class="detailHeader">Local Time</div>
+          <div class="value"></div>
+        </div>
+        <div id="wind">
+          <div class="detailHeader">Wind</div>
+          <div class="value"></div>
+        </div>
+        <div id="cloudiness">
+          <div class="detailHeader">Cloudiness</div>
+          <div class="value"></div>
+        </div>
+        <div id="pressure">
+          <div class="detailHeader">Pressure</div>
+          <div class="value"></div>
+        </div>
+        <div id="humidity">
+          <div class="detailHeader">Humidity</div>
+          <div class="value"></div>
+        </div>
+        <div id="sunrise">
+          <div class="detailHeader">Sunrise</div>
+          <div class="value"></div>
+        </div>
+        <div id="sunset">
+          <div class="detailHeader">Sunset</div>
+          <div class="value"></div>
+        </div>
+        <div id="geoCoords">
+          <div class="detailHeader">Geo Coordinates</div>
+          <div class="value"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="assets/js/script.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</body>
+
 </html>
