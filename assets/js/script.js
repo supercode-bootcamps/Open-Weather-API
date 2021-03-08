@@ -52,6 +52,7 @@ form.addEventListener("submit", (e) => {
 
       // -------------- lottie animation ----------------
       console.log(data.weather[0].description)
+      
       if (data.weather[0].description === "clear sky")
       lottie.innerHTML = `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_rONq3c.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
       if (data.weather[0].description === "few clouds")
