@@ -52,23 +52,26 @@ form.addEventListener("submit", (e) => {
 
       // -------------- lottie animation ----------------
       console.log(data.weather[0].description)
-      
+
       if (data.weather[0].description === "clear sky")
       lottie.innerHTML = `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_rONq3c.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
-      if (data.weather[0].description === "few clouds")
+      else if (data.weather[0].description === "few clouds" || data.weather[0].description === "overcast clouds")
       lottie.innerHTML = `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_WlYhMW.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
-      if (data.weather[0].description === "scattered clouds" || data.weather[0].description === "broken clouds")
+      else if (data.weather[0].description === "scattered clouds" || data.weather[0].description === "broken clouds")
       lottie.innerHTML = `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_VpIYY7.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
-      if (data.weather[0].description === "shower rain")
+      else if (data.weather[0].description === "shower rain")
       lottie.innerHTML = `<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_EIoBeQ.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
-      if (data.weather[0].description === "rain")
+      else if (data.weather[0].description === "rain")
       lottie.innerHTML = `<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_h86M0Q.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
-      if (data.weather[0].description === "thunderstorm")
+      else if (data.weather[0].description === "thunderstorm")
       lottie.innerHTML = `<<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_x0zXoH.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
-      if (data.weather[0].description === "snow")
+      else if (data.weather[0].description === "snow")
       lottie.innerHTML = `<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_QCNwCF.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
-      if (data.weather[0].description === "mist")
+      else if (data.weather[0].description === "mist")
       lottie.innerHTML = `<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_RjBGHq.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else{
+      lottie.innerHTML = `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_rONq3c.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      }
 
       // ---------- detail Section ----------------
 
@@ -143,7 +146,6 @@ form.addEventListener("submit", (e) => {
       sunset.innerHTML = getSunset();
       geoCoords.innerHTML = data.coord.lat + "," + data.coord.lon;
 
-      console.log(data);
     });
 });
 
