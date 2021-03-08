@@ -16,6 +16,8 @@ const sunrise = document.querySelector("#sunrise .value");
 const sunset = document.querySelector("#sunset .value");
 const geoCoords = document.querySelector("#geoCoords .value");
 
+let lottie = document.querySelector("#lottie-container");
+
 const monthNames = [
   "Jan",
   "Feb",
@@ -31,19 +33,45 @@ const monthNames = [
   "Dec",
 ];
 
+console.log(lottie);
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let city = document.querySelector("#searchField");
   city = city.value;
+
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=78c29c57fa1b0939a568dac3a843325c&units=metric`
   )
     .then((response) => response.json())
     .then((data) => {
       // ---------- main Section ----------------
-      cityName.innerHTML = data.name;
-      mainIcon.innerHTML = "data.weather[0].icon + hier sollte ein Icon sein";
+      cityName.innerHTML = data.name + ", " + data.sys.country;
+      // mainIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       temperature.innerHTML = `${data.main.temp}&#186 C`;
+
+      // -------------- lottie animation ----------------
+      console.log(data.weather[0].description)
+
+      if (data.weather[0].description === "clear sky")
+      lottie.innerHTML = `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_rONq3c.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else if (data.weather[0].description === "few clouds" || data.weather[0].description === "overcast clouds")
+      lottie.innerHTML = `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_WlYhMW.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else if (data.weather[0].description === "scattered clouds" || data.weather[0].description === "broken clouds")
+      lottie.innerHTML = `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_VpIYY7.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else if (data.weather[0].description === "shower rain")
+      lottie.innerHTML = `<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_EIoBeQ.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else if (data.weather[0].description === "rain")
+      lottie.innerHTML = `<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_h86M0Q.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else if (data.weather[0].description === "thunderstorm")
+      lottie.innerHTML = `<<lottie-player src="https://assets8.lottiefiles.com/packages/lf20_x0zXoH.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else if (data.weather[0].description === "snow")
+      lottie.innerHTML = `<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_QCNwCF.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else if (data.weather[0].description === "mist")
+      lottie.innerHTML = `<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_RjBGHq.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      else{
+      lottie.innerHTML = `<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_rONq3c.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>`;
+      }
 
       // ---------- detail Section ----------------
 
@@ -118,7 +146,6 @@ form.addEventListener("submit", (e) => {
       sunset.innerHTML = getSunset();
       geoCoords.innerHTML = data.coord.lat + "," + data.coord.lon;
 
-      console.log(data);
     });
 });
 
