@@ -2,6 +2,9 @@
 
 let form = document.querySelector("form");
 
+let gridContainer = document.querySelector("#grid");
+const frog = document.querySelector("#frog-container");
+
 const cityName = document.querySelector("#cityName");
 const temperature = document.querySelector("#temperature");
 
@@ -33,6 +36,9 @@ const monthNames = [
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  gridContainer.style.display = "block";
+  frog.style.display = "none";
+
   let city = document.querySelector("#searchField");
   city = city.value;
 

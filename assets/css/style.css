@@ -122,6 +122,7 @@ main {
   margin: auto;
 }
 #grid {
+  display: none;
   width: 20%;
   justify-content: center;
   min-width: 200px;
