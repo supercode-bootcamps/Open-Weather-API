@@ -36,18 +36,20 @@ const monthNames = [
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  gridContainer.style.display = "block";
-  frog.style.display = "none";
-
+  
   let city = document.querySelector("#searchField");
   city = city.value;
-
+  
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=78c29c57fa1b0939a568dac3a843325c&units=metric`
-  )
+    )
     .then((response) => response.json())
     .then((data) => {
       // ---------- main Section ----------------
+      
+      gridContainer.style.display = "block";
+      frog.style.display = "none";
+
       cityName.innerHTML = data.name + ", " + data.sys.country;
       temperature.innerHTML = `${data.main.temp}&#186 C`;
 
@@ -154,5 +156,12 @@ form.addEventListener("submit", (e) => {
       sunrise.innerHTML = getSunrise();
       sunset.innerHTML = getSunset();
       geoCoords.innerHTML = data.coord.lat + ", " + data.coord.lon;
-    });
+    })
+    .catch((error) => {
+      gridContainer.style.display = "none";
+      frog.style.display = "block";
+        frog.innerHTML = "Upsi"
+        console.log('Error:')
+        ;
+      });
 });
