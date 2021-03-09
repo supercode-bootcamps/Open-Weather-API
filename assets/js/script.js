@@ -2,9 +2,6 @@
 
 let form = document.querySelector("form");
 
-let gridContainer = document.querySelector("#grid");
-const frog = document.querySelector("#frog-container");
-
 const cityName = document.querySelector("#cityName");
 const temperature = document.querySelector("#temperature");
 
@@ -33,34 +30,9 @@ const monthNames = [
   "Nov",
   "Dec",
 ];
-let map;
-
-function setCookie(cname, cvalue, exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-  var expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(";");
-  for (var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   let city = document.querySelector("#searchField");
   city = city.value;
 
@@ -70,10 +42,6 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       // ---------- main Section ----------------
-
-      gridContainer.style.display = "block";
-      frog.style.display = "none";
-
       cityName.innerHTML = data.name + ", " + data.sys.country;
       temperature.innerHTML = `${data.main.temp}&#186 C`;
 
@@ -180,27 +148,5 @@ form.addEventListener("submit", (e) => {
       sunrise.innerHTML = getSunrise();
       sunset.innerHTML = getSunset();
       geoCoords.innerHTML = data.coord.lat + ", " + data.coord.lon;
-      initMap(Number(data.coord.lat), Number(data.coord.lon));
-    })
-    .catch((error) => {
-      gridContainer.style.display = "none";
-      frog.style.display = "block";
-      frog.innerHTML = "Upsi";
-      console.log("Error:");
     });
 });
-
-function initMap(latitude, longitude) {
-  const mapOptions = {
-    zoom: 8,
-    center: { lat: latitude, lng: longitude },
-  };
-  map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  const marker = new google.maps.Marker({
-    position: { lat: latitude, lng: longitude },
-    map: map,
-  });
-  const infowindow = new google.maps.InfoWindow({
-    content: "<p>Marker Location:" + marker.getPosition() + "</p>",
-  });
-}
