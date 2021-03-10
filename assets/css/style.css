@@ -64,9 +64,11 @@ body {
     rgba(12, 38, 89, 1) 10%,
     rgba(28, 44, 140, 1) 50%
   );
+  background-repeat: no-repeat;
   font-family: "Roboto", sans-serif;
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  width: 100vw;
+  font-size: 1.3em;
 }
 
 header {
@@ -80,6 +82,8 @@ input[type="search"] {
   background-color: rgba(28, 44, 140, 1);
   font-size: 30px;
   outline: none;
+  text-align: center;
+  color: rgba(242, 186, 118, 1);
 }
 h1 {
   position: relative;
@@ -111,60 +115,89 @@ img {
 
 main {
   display: flex;
+  width: 60%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
-  border: 1px solid;
+  padding: 3rem;
+  border: 1px solid #f2d06b;
   border-radius: 10px;
   min-width: 20%;
-  width: 50%;
   margin: auto;
 }
+.animation {
+  margin-right: 5rem;
+}
 #grid {
-  display: none;
-  width: 20%;
-  justify-content: center;
-  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  left: 4%;
+  width: 60%;
+  /* min-width: 200px; */
   position: relative;
   bottom: 30px;
+  display: none;
 }
 
 #mainInfo {
   display: flex;
-  justify-content: center;
-  align-content: center;
-  margin: 40px;
-  position: relative;
-  right: 30px;
+  margin: 5% 0 20% 0;
+  height: 30px;
+}
+
+#cityName {
+  margin-right: 3rem;
+  margin-top: 1.2em;
+}
+
+#temperature {
+  margin-top: 2em;
 }
 
 #grid div {
-  display: grid;
   justify-items: left;
   align-items: center;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50px;
-  gap: 60px;
   position: relative;
   text-align: left;
   text-decoration: none;
 }
 
-/* ------ nur zur ersten besseren Sichtbarkeit */
-.detailHeader {
-  text-decoration: underline;
+#localTime,
+#wind,
+#cloudiness,
+#pressure,
+#humidity,
+#sunrise,
+#sunset,
+#geoCoords {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50px;
+  gap: 20px;
+}
+
+#box {
+  height: 40%;
+  width: 30%;
+  position: relative;
 }
 
 #lottie-container {
-  border: solid 1px red;
-  width: 300px;
-  height: 300px;
+  transform: scale(0.4) translate(-80%, -100%);
+  position: relative;
+  right: 5%;
+  width: 30%;
 }
 
-/* ------ Google Maps container */
-
 #map {
-  height: 20vh;
-  width: 20%;
+  height: 50%;
+  width: 17%;
+  position: absolute;
+  top: 22em;
+  left: 10em;
+}
+
+#map-container {
+  visibility: hidden;
 }

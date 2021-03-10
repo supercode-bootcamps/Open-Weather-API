@@ -18,13 +18,14 @@
     </h1>
     <form>
       <input type="search" name="search" id="searchField" placeholder="Search city" />
-      <button><img src="/assets/img/lupe.png" alt="lupe" /></button>
+      <button><img src="assets/img/lupe.png" alt="lupe" /></button>
     </form>
   </header>
 
   <main>
     <section id="frog-container">
-      <lottie-player src="https://assets2.lottiefiles.com/datafiles/J2NYjLn3cvpuAzo/data.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+      <lottie-player src="https://assets2.lottiefiles.com/datafiles/J2NYjLn3cvpuAzo/data.json" background="transparent"
+        speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
     </section>
     <section id="grid">
       <section id="mainInfo">
@@ -73,8 +74,11 @@
 
       </section>
     </section>
-    <div id="map"></div>
+
   </main>
+  <div id="map-container">
+    <div id="map"></div>
+  </div>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGMHFSOS3lMPgOOmzYpACYbZWn6k5gPW8&callback=initMap&libraries=&v=weekly"
     async></script>
