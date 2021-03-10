@@ -10,17 +10,12 @@
 </head>
 
 <body>
-
   <header>
     <h1>
       Happy <br />
       Weather <br />
       App
     </h1>
-    <section id="frog-container">
-      <lottie-player src="https://assets2.lottiefiles.com/datafiles/J2NYjLn3cvpuAzo/data.json" background="transparent"
-        speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
-    </section>
     <form>
       <input type="search" name="search" id="searchField" placeholder="Search city" />
       <button><img src="assets/img/lupe.png" alt="lupe" /></button>
@@ -28,17 +23,17 @@
   </header>
 
   <main>
-
-
+    <section id="frog-container">
+      <lottie-player src="https://assets2.lottiefiles.com/datafiles/J2NYjLn3cvpuAzo/data.json" background="transparent"
+        speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+    </section>
     <section id="grid">
       <section id="mainInfo">
-
-        <h2 id="cityName"></h2>
-        <p id="temperature"></p>
-        <div>
-
-        </div>
         <div id="lottie-container"></div>
+        <h2 id="cityName"></h2>
+        <div>
+          <p id="temperature"></p>
+        </div>
         <p id="basicWeatherInfo"></p>
         <p id="dateInfo"></p>
       </section>
@@ -93,4 +88,3 @@
 </body>
 
 </html>
-</script>
