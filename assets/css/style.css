@@ -111,14 +111,20 @@ img {
 
 main {
   display: flex;
+  width: 60%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
-
+  padding: 3rem;
+  border: 1px solid #f2d06b;
+  border-radius: 10px;
   min-width: 20%;
  
   margin: auto;
+}
+.animation {
+  margin-right: 5rem;
 }
 #grid {
   display: flex;
@@ -133,13 +139,14 @@ main {
 
 #mainInfo {
   display: flex;
-  margin: 5% 0 10% 0 ;
+  margin: 5% 0 20% 0 ;
   height: 30px;
- 
- 
+
  
 }
-
+#cityName {
+  margin-right: 4.5rem;
+}
 
 #grid div {
   display: grid;
@@ -163,10 +170,8 @@ main {
 #lottie-container {
   transform: scale(0.2) translate(-80%, -100%);
   position: relative;
- 
+  right: 30%;
 
- 
- 
 }
 
 #frog-container {
