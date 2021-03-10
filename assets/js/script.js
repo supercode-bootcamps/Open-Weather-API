@@ -2,6 +2,9 @@
 
 let form = document.querySelector("form");
 
+let gridContainer = document.querySelector("#grid");
+const frog = document.querySelector("#frog-container");
+
 const cityName = document.querySelector("#cityName");
 const temperature = document.querySelector("#temperature");
 
@@ -13,6 +16,7 @@ const humidity = document.querySelector("#humidity .value");
 const sunrise = document.querySelector("#sunrise .value");
 const sunset = document.querySelector("#sunset .value");
 const geoCoords = document.querySelector("#geoCoords .value");
+const mapContainer = document.getElementById("map-container");
 
 let lottie = document.querySelector("#lottie-container");
 
@@ -30,9 +34,11 @@ const monthNames = [
   "Nov",
   "Dec",
 ];
+let map;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
   let city = document.querySelector("#searchField");
   city = city.value;
 
@@ -42,6 +48,10 @@ form.addEventListener("submit", (e) => {
     .then((response) => response.json())
     .then((data) => {
       // ---------- main Section ----------------
+
+      gridContainer.style.display = "block";
+      frog.style.display = "none";
+
       cityName.innerHTML = data.name + ", " + data.sys.country;
       temperature.innerHTML = `${data.main.temp}&#186 C`;
 
@@ -148,5 +158,26 @@ form.addEventListener("submit", (e) => {
       sunrise.innerHTML = getSunrise();
       sunset.innerHTML = getSunset();
       geoCoords.innerHTML = data.coord.lat + ", " + data.coord.lon;
+      initMap(Number(data.coord.lat), Number(data.coord.lon));
+      mapContainer.style.visibility = "visible";
+    })
+    .catch((error) => {
+      gridContainer.style.display = "none";
+      frog.style.display = "block";
+      frog.innerHTML = "Oops...something went wrong. Please try again";
     });
 });
+
+// ----- Google Maps ------
+
+function initMap(latitude, longitude) {
+  const mapOptions = {
+    zoom: 6,
+    center: { lat: latitude, lng: longitude },
+  };
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  const marker = new google.maps.Marker({
+    position: { lat: latitude, lng: longitude },
+    map: map,
+  });
+}
